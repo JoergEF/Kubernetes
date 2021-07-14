@@ -1,4 +1,5 @@
 IMAGE_NAME = "bento/ubuntu-20.04"
+
 K8S_NAME = "iad-k8s-01"
 MASTERS_NUM = 1
 MASTERS_CPU = 2 
@@ -49,6 +50,10 @@ Vagrant.configure("2") do |config|
                 v.name = "k8s-n-#{j}"
                 v.memory = NODES_MEM
                 v.cpus = NODES_CPU
+                unless File.exist?("./cephDisk-#{j}.vdi")
+                    v.customize ['createhd', '--filename', "./cephDisk-#{j}.vdi", '--variant', 'Fixed', '--size', 60 * 1024]
+                end
+                v.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', "./cephDisk-#{j}.vdi"]
             end             
             node.vm.provision "ansible" do |ansible|
                 ansible.playbook = "roles/k8s.yml"                   
