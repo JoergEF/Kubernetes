@@ -2,7 +2,7 @@
 
 1. Deployment starten:
     ```bash
-    kubectl apply -f chatbot-ai-deployment.yaml
+    kubectl apply -f chatbot-ai/chatbot-ai-deployment.yaml
     ```
 2. Chatbot öffnen:
     http://192.168.100.11:30080
