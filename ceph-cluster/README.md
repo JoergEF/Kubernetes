@@ -47,21 +47,27 @@
     kubectl create -f ceph-cluster/20\ -\ ClusterStorageClass.yaml
     ```
 
-##### Ab sofort steht der ceph-Speicher als Blockstorage für PersistentVolumeClaims zur Verfügung. Als StorageClass muss dafür rook-ceph-block angegeben werden.
+    ##### Ab sofort steht der ceph-Speicher als Blockstorage für PersistentVolumeClaims zur Verfügung. Als StorageClass muss dafür rook-ceph-block angegeben werden.
 
-```yaml
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: my-claim
-  labels:
-    app: my-app
-spec:
-  storageClassName: rook-ceph-block
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
-```
+    ```yaml
+    ---
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+    name: my-claim
+    labels:
+        app: my-app
+    spec:
+    storageClassName: rook-ceph-block
+    accessModes:
+    - ReadWriteOnce
+    resources:
+        requests:
+        storage: 20Gi
+    ```
+9. ceph-Dashboard veröffentlichen
+    ```bash
+    kubectl apply -f ceph-cluster/30\ -\ ceph-Dashbord-service-np.yaml
+    kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode && echo
+    ```
+    Passwortausgabe kopieren und mit Benutzernamen und Passwort anmelden an: https://192.168.100.11:30003/
