@@ -7,5 +7,5 @@ fresh: clean
 clean:
 	vagrant destroy -f
 	rm -rf .vagrant
-	rm cephDisk*
-	rm roles/iad*
+	[ -x cephDisk-1.vdi ] && rm cephDisk*
+	[ -x roles\iad*-join-command ] && rm roles/iad*
