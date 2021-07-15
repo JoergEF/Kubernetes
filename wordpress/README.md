@@ -29,7 +29,7 @@
     capacity:
         storage: 20Gi
     hostPath:
-    path: "/mnt/data/my"
+        path: "/mnt/data/my"
     ```
 4. wordpress/wordpress-deployment anpassen:
 
@@ -40,7 +40,7 @@
     capacity:
         storage: 20Gi
     hostPath:
-    path: "/mnt/data/wp"
+        path: "/mnt/data/wp"
     ```
 
 5. anwenden:
@@ -67,7 +67,7 @@
     capacity:
         storage: 20Gi
     hostPath:
-    path: "/mnt/data/my"
+        path: "/mnt/data/my"
     ```
 4. wordpress/wordpress-deployment anpassen:
 
@@ -82,7 +82,7 @@
     capacity:
         storage: 20Gi
     hostPath:
-    path: "/mnt/data/wp"
+        path: "/mnt/data/wp"
     ```
 5. anwenden:
     ```bash
