@@ -82,7 +82,7 @@
     capacity:
         storage: 20Gi
     hostPath:
-    path: "/mnt/data/my"
+    path: "/mnt/data/wp"
     ```
 5. anwenden:
     ```bash
