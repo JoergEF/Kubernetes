@@ -15,7 +15,7 @@
     ```
 2. wordpress/kustomization.yaml anpassen:
 
-    _in Zeile 6 <ENTER> und dann zusätzlich einfügen:_
+    _in Zeile 6 ```<ENTER>``` und dann zusätzlich einfügen:_
 
     ```- persistentvolume.yaml```
 
